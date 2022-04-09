@@ -15,8 +15,8 @@ export class ApiBinder {
         return this;
     }
 
-    public withCRUDOperation(method: string, lambdaIntegrations: LambdaIntegration): ApiBinder {
-        this.lambdaIntegrations.set(method, lambdaIntegrations);
+    public withCRUDOperation(method: string, lambdaIntegration: LambdaIntegration): ApiBinder {
+        this.lambdaIntegrations.set(method, lambdaIntegration);
         return this;
     }
 
@@ -26,8 +26,8 @@ export class ApiBinder {
         let key = keys.next();
 
         while(key.done === false) {
-            const lambdaIntegrations: LambdaIntegration = this.lambdaIntegrations.get(key.value);
-            this.resource?.addMethod(key.value, lambdaIntegrations);
+            const lambdaIntegration: LambdaIntegration = this.lambdaIntegrations.get(key.value)!;
+            this.resource?.addMethod(key.value, lambdaIntegration);
             key = keys.next();
         }
     }

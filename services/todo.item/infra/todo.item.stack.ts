@@ -40,6 +40,7 @@ export class TodoItemStack extends Stack {
         // bind the api
         new ApiBinder(this.restApi)
             .toResource('todo')
-            .withCRUDOperation('POST', new LambdaIntegration(createTodoItemLambda));
+            .withCRUDOperation('POST', new LambdaIntegration(createTodoItemLambda))
+            .bind();
     }
 }
