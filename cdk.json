@@ -1,0 +1,3 @@
+{
+    "app": "npx ts-node services/infra/main.ts"
+}
